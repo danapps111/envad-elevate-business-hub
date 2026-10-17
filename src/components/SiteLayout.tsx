@@ -77,11 +77,11 @@ export function PageHeader({
           <div className="header-photo-fade absolute inset-0" />
         </>
       ) : null}
-      <div className="relative mx-auto max-w-6xl px-6 py-20">
+      <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-20">
         <div
           className={
             bgImage
-              ? "rounded-2xl bg-white/80 p-6 shadow-sm ring-1 ring-white/60 backdrop-blur-[3px] sm:p-8 lg:max-w-2xl"
+              ? "rounded-2xl bg-white/72 p-5 shadow-sm ring-1 ring-white/60 backdrop-blur-md sm:bg-white/80 sm:p-8 lg:max-w-2xl"
               : undefined
           }
         >
