@@ -1,27 +1,69 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
+import logoAsset from "@/assets/envad-logo.png.asset.json";
 import hero from "@/assets/hero.jpg";
+import {
+  BarChart3,
+  CalendarDays,
+  FileCheck,
+  Globe,
+  Leaf,
+  Map,
+  Megaphone,
+  Presentation,
+  ShieldCheck,
+  Shirt,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-// Homepage mind map — hub position in SVG viewBox units (900 x 540).
-const HUB = { x: 450, y: 270 };
-const BRANCHES = [
-  { label: "Environmental Services", x: 770, y: 270 },
-  { label: "GIS & Mapping", x: 676, y: 132 },
-  { label: "ISO 9001", x: 450, y: 75 },
-  { label: "R&D", x: 224, y: 132 },
-  { label: "Training", x: 130, y: 270 },
-  { label: "International", x: 224, y: 408 },
-  { label: "Branding & Marketing", x: 450, y: 465 },
-  { label: "Merchandise", x: 676, y: 408 },
+type Cover = {
+  label: string;
+  Icon: LucideIcon;
+  tint: string;
+  ink: string;
+  dot: string;
+};
+
+// "What we cover" hub-and-spoke: five cards either side of the central hub.
+const LEFT: Cover[] = [
+  { label: "Environmental Consultancy", Icon: Leaf, tint: "bg-tint-leaf", ink: "text-leaf", dot: "bg-leaf" },
+  { label: "Permitting", Icon: FileCheck, tint: "bg-tint-sky", ink: "text-sky", dot: "bg-sky" },
+  { label: "Mapping and GIS Data", Icon: Map, tint: "bg-tint-sun", ink: "text-sun", dot: "bg-sun" },
+  { label: "Data Consolidation and Returns", Icon: BarChart3, tint: "bg-tint-leaf", ink: "text-leaf", dot: "bg-leaf" },
+  { label: "ISO 9001 Standard", Icon: ShieldCheck, tint: "bg-tint-sky", ink: "text-sky", dot: "bg-sky" },
 ];
 
-function branchPath(cx: number, cy: number, x: number, y: number, bend: number) {
-  const mx = (cx + x) / 2;
-  const my = (cy + y) / 2;
-  const dx = x - cx;
-  const dy = y - cy;
-  const len = Math.hypot(dx, dy) || 1;
-  return `M ${cx} ${cy} Q ${mx + (-dy / len) * bend} ${my + (dx / len) * bend} ${x} ${y}`;
+const RIGHT: Cover[] = [
+  { label: "Marketing and Branding", Icon: Megaphone, tint: "bg-tint-sun", ink: "text-sun", dot: "bg-sun" },
+  { label: "Merchandise Design and Printing/Engraving", Icon: Shirt, tint: "bg-tint-leaf", ink: "text-leaf", dot: "bg-leaf" },
+  { label: "Events", Icon: CalendarDays, tint: "bg-tint-sky", ink: "text-sky", dot: "bg-sky" },
+  { label: "Training", Icon: Presentation, tint: "bg-tint-sun", ink: "text-sun", dot: "bg-sun" },
+  { label: "International Training", Icon: Globe, tint: "bg-tint-leaf", ink: "text-leaf", dot: "bg-leaf" },
+];
+
+// Connector geometry, as percentages of the SVG box (100 x 100, stretched to fit).
+const HUB = { x: 50, y: 50 };
+const EDGES = { left: 34.2, right: 65.8 };
+const ROWS = [10, 30, 50, 70, 90];
+
+function spoke(side: "left" | "right", rowY: number) {
+  const bend = side === "left" ? 41 : 59;
+  return `M ${HUB.x} ${HUB.y} C ${bend} ${HUB.y}, ${bend} ${rowY}, ${EDGES[side]} ${rowY}`;
+}
+
+function CoverCard({ item }: { item: Cover }) {
+  const { label, Icon, tint, ink } = item;
+  return (
+    <Link
+      to="/services"
+      className="flex h-full items-center gap-4 rounded-xl border bg-card px-5 shadow-sm transition hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
+    >
+      <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${tint}`}>
+        <Icon className={`h-5 w-5 ${ink}`} strokeWidth={1.75} />
+      </span>
+      <span className="font-display text-[15px] font-semibold leading-snug text-navy">{label}</span>
+    </Link>
+  );
 }
 
 // Placeholder quotes — replace with real client testimonials before launch.
@@ -84,50 +126,70 @@ function Index() {
           <Link to="/services" className="text-sm font-medium text-primary hover:underline">All services →</Link>
         </div>
 
-        {/* Mind map (tablet and up) */}
-        <div className="relative mx-auto mt-12 hidden h-[540px] max-w-[900px] md:block">
-          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 900 540" preserveAspectRatio="none" aria-hidden="true">
-            {BRANCHES.map((b, i) => (
-              <path
-                key={b.label}
-                d={branchPath(HUB.x, HUB.y, b.x, b.y, i % 2 === 0 ? 40 : -40)}
-                fill="none"
-                stroke="var(--border)"
-                strokeWidth="2"
-              />
+        {/* Hub-and-spoke service map (large screens) */}
+        <div className="relative mt-12 hidden h-[660px] lg:block">
+          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            {ROWS.map((y) => (
+              <g key={y}>
+                <path d={spoke("left", y)} fill="none" stroke="var(--border)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+                <path d={spoke("right", y)} fill="none" stroke="var(--border)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+              </g>
             ))}
           </svg>
-          <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-navy text-center text-navy-foreground shadow-xl">
-            <span className="font-display text-xl font-bold tracking-tight">Envad Ltd</span>
-            <span className="mt-1 text-[11px] uppercase tracking-widest text-sun">One hub</span>
+
+          <div className="absolute inset-0 grid grid-cols-[1fr_320px_1fr] gap-6">
+            <div className="grid grid-rows-5 gap-5">
+              {LEFT.map((item) => (
+                <CoverCard key={item.label} item={item} />
+              ))}
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="flex h-72 w-72 flex-col items-center justify-center rounded-full border bg-card px-8 text-center shadow-xl">
+                <img src={logoAsset.url} alt="Envad Ltd logo" className="h-20 w-auto" width={320} height={180} />
+                <span className="mt-4 h-px w-16 bg-border" />
+                <span className="mt-4 text-[11px] font-medium uppercase tracking-widest text-primary">One hub, ten services</span>
+              </div>
+            </div>
+            <div className="grid grid-rows-5 gap-5">
+              {RIGHT.map((item) => (
+                <CoverCard key={item.label} item={item} />
+              ))}
+            </div>
           </div>
-          {BRANCHES.map((b, i) => (
-            <Link
-              key={b.label}
-              to="/services"
-              style={{ left: `${(b.x / 900) * 100}%`, top: `${(b.y / 540) * 100}%` }}
-              className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full border bg-card px-4 py-2 text-sm font-medium shadow-sm transition hover:-translate-y-[calc(50%+2px)] hover:border-primary hover:text-primary hover:shadow-md"
-            >
-              <span className={`h-2 w-2 rounded-full ${i % 2 === 0 ? "bg-leaf" : "bg-sun"}`} />
-              {b.label}
-            </Link>
+
+          {/* where each connector meets its card */}
+          {LEFT.map((item, i) => (
+            <span
+              key={`l-${item.label}`}
+              className={`absolute h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ${item.dot}`}
+              style={{ left: `${EDGES.left}%`, top: `${ROWS[i]}%` }}
+            />
+          ))}
+          {RIGHT.map((item, i) => (
+            <span
+              key={`r-${item.label}`}
+              className={`absolute h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ${item.dot}`}
+              style={{ left: `${EDGES.right}%`, top: `${ROWS[i]}%` }}
+            />
           ))}
         </div>
 
-        {/* Simple branch list (mobile) */}
-        <div className="mt-10 md:hidden">
-          <div className="mx-auto flex w-fit items-center justify-center rounded-full bg-navy px-6 py-3 text-center text-navy-foreground">
-            <span className="font-display text-lg font-bold">Envad Ltd</span>
+        {/* Stacked version (small and medium screens) */}
+        <div className="mt-10 lg:hidden">
+          <div className="mx-auto flex w-fit items-center justify-center rounded-full border bg-card px-8 py-4 shadow-sm">
+            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-12 w-auto" width={320} height={180} />
           </div>
-          <div className="mt-6 grid grid-cols-2 gap-3">
-            {BRANCHES.map((b, i) => (
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {[...LEFT, ...RIGHT].map((item) => (
               <Link
-                key={b.label}
+                key={item.label}
                 to="/services"
-                className="flex items-center gap-2 rounded-lg border bg-card px-3 py-3 text-sm font-medium shadow-sm transition hover:border-primary hover:text-primary"
+                className="flex items-center gap-3 rounded-xl border bg-card px-4 py-3 shadow-sm transition hover:border-primary hover:shadow-md"
               >
-                <span className={`h-2 w-2 shrink-0 rounded-full ${i % 2 === 0 ? "bg-leaf" : "bg-sun"}`} />
-                {b.label}
+                <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${item.tint}`}>
+                  <item.Icon className={`h-4 w-4 ${item.ink}`} strokeWidth={1.75} />
+                </span>
+                <span className="font-display text-sm font-semibold text-navy">{item.label}</span>
               </Link>
             ))}
           </div>
