@@ -175,26 +175,13 @@
   background-image: radial-gradient(circle at 15% 0%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 55%),
     radial-gradient(circle at 90% 100%, color-mix(in oklab, var(--sun) 14%, transparent), transparent 45%);
 }
-/* Light wash laid over a header photo so navy text stays readable. */
-@utility header-scrim {
+/* Light touch over a header photo: keeps the top soft and blends the bottom
+   into the page, so the photograph itself stays vivid behind the text panel. */
+@utility header-photo-fade {
   background: linear-gradient(
     180deg,
-    color-mix(in oklab, var(--background) 78%, transparent) 0%,
-    color-mix(in oklab, var(--background) 64%, transparent) 60%,
-    color-mix(in oklab, var(--background) 92%, transparent) 100%
+    color-mix(in oklab, var(--background) 24%, transparent) 0%,
+    transparent 40%,
+    color-mix(in oklab, var(--background) 55%, transparent) 100%
   );
-}
-/* On wide screens the text sits left, so the wash fades out towards the right. */
-@utility header-scrim-wide {
-  background: linear-gradient(
-      90deg,
-      color-mix(in oklab, var(--background) 92%, transparent) 0%,
-      color-mix(in oklab, var(--background) 74%, transparent) 45%,
-      color-mix(in oklab, var(--background) 36%, transparent) 100%
-    ),
-    linear-gradient(
-      180deg,
-      transparent 0%,
-      color-mix(in oklab, var(--background) 40%, transparent) 100%
-    );
 }
