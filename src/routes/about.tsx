@@ -79,7 +79,7 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-function Section({ heading, children }: { heading: string; children: React.ReactNode }) {
+function Section({ heading, children }: { heading: string; children: ReactNode }) {
   return (
     <div className="mt-14 border-t border-navy/10 pt-10 first:mt-0 first:border-0 first:pt-0">
       <h2 className="font-display text-2xl font-bold text-navy sm:text-3xl">{heading}</h2>
