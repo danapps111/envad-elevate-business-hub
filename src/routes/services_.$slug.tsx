@@ -171,7 +171,7 @@ function ServiceDetailPage() {
             {related.map((s) => (
               <Link
                 key={s.slug}
-                to="/services_/$slug"
+                to="/services/$slug"
                 params={{ slug: s.slug }}
                 className="rounded-xl border bg-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
               >

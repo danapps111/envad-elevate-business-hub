@@ -35,7 +35,7 @@ function Services() {
           {SERVICES.map((s, i) => (
             <Link
               key={s.slug}
-              to="/services_/$slug"
+              to="/services/$slug"
               params={{ slug: s.slug }}
               className="group flex gap-5 rounded-lg border bg-card p-6 transition hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
             >
