@@ -29,6 +29,9 @@
   --color-tint-leaf: var(--tint-leaf);
   --color-tint-sky: var(--tint-sky);
   --color-tint-sun: var(--tint-sun);
+  --color-deep: var(--deep);
+  --color-deep-deeper: var(--deep-deeper);
+  --color-leaf-bright: var(--leaf-bright);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -100,6 +103,10 @@
   --tint-leaf: oklch(0.965 0.035 150);
   --tint-sky: oklch(0.96 0.03 240);
   --tint-sun: oklch(0.965 0.045 85);
+  /* Dark blue used for feature bands (footer, call-to-action panels). */
+  --deep: oklch(0.32 0.075 252);
+  --deep-deeper: oklch(0.26 0.07 252);
+  --leaf-bright: oklch(0.78 0.15 150);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -184,4 +191,15 @@
     transparent 40%,
     color-mix(in oklab, var(--background) 55%, transparent) 100%
   );
+}
+/* Dark blue band: deep navy ground with a soft leaf glow at the top-left and
+   a sky glow at the bottom-right, so it reads as coloured rather than flat. */
+@utility deep-glow {
+  background-color: var(--deep);
+  background-image: radial-gradient(
+      circle at 12% 0%,
+      color-mix(in oklab, var(--leaf) 26%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(circle at 88% 100%, color-mix(in oklab, var(--sky) 30%, transparent), transparent 50%);
 }

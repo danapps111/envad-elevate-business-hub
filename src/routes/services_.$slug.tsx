@@ -144,18 +144,18 @@ function ServiceDetailPage() {
         ) : null}
 
         {detail.closing ? (
-          <div className="mt-12 rounded-2xl bg-tint-sun p-6 sm:p-8">
-            <p className="text-[17px] leading-relaxed text-navy/80">{detail.closing}</p>
+          <div className="deep-glow mt-12 rounded-2xl p-6 text-navy-foreground sm:p-8">
+            <p className="text-[17px] leading-relaxed text-navy-foreground/95">{detail.closing}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link
                 to="/contact"
-                className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90"
+                className="rounded-md bg-leaf-bright px-6 py-3 font-medium text-deep transition hover:bg-leaf-bright/90"
               >
                 Talk to us
               </Link>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="rounded-md border border-navy/15 bg-white px-6 py-3 font-medium text-navy hover:border-primary hover:text-primary"
+                className="rounded-md bg-card px-6 py-3 font-medium text-deep transition hover:bg-card/90"
               >
                 {CONTACT.email}
               </a>

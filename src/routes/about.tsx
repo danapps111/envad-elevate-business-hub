@@ -212,31 +212,31 @@ function About() {
       </section>
 
       {/* Closing */}
-      <section className="contour-bg text-navy">
+      <section className="deep-glow text-navy-foreground">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-primary">One business. Two passions.</p>
+          <p className="text-sm font-medium uppercase tracking-widest text-leaf-bright">One business. Two passions.</p>
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
             Environmental scientist. Consultant. Researcher. Educator. Designer. Maker.
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-navy/75">
+          <p className="mt-6 text-lg leading-relaxed text-navy-foreground/75">
             Rather than separating these different parts of what I do, Envad brings them together. The result is a
             business that can approach a problem technically, strategically and creatively — and develop solutions
             that are not only scientifically sound, but clear, practical and engaging.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {MOTTO.map((line) => (
-              <p key={line} className="rounded-lg border border-navy/10 bg-white/70 px-4 py-5 font-display text-lg font-semibold">
+              <p key={line} className="rounded-lg bg-navy-foreground/10 px-4 py-5 font-display text-lg font-semibold ring-1 ring-navy-foreground/15">
                 {line}
               </p>
             ))}
           </div>
-          <p className="mt-8 text-navy/70">
+          <p className="mt-8 text-navy-foreground/70">
             And behind it all is a little piece of Mauritius — the place where my connection with nature, colour and
             creativity began.
           </p>
           <Link
             to="/contact"
-            className="mt-10 inline-block rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:bg-primary/90"
+            className="mt-10 inline-block rounded-md bg-leaf-bright px-6 py-3 font-medium text-deep transition hover:bg-leaf-bright/90"
           >
             Talk to us
           </Link>

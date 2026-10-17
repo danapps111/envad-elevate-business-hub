@@ -30,17 +30,17 @@ function Contact() {
     <SiteLayout>
       <PageHeader eyebrow="Contact" title="Let's talk about your project." intro="Tell us what you need and we'll get back to you promptly." />
       <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1fr_1.4fr]">
-        <div className="space-y-6">
+        <div className="deep-glow space-y-7 self-start rounded-2xl p-8 text-navy-foreground shadow-sm">
           <div>
-            <p className="text-sm uppercase tracking-widest text-muted-foreground">Email</p>
-            <a href={`mailto:${CONTACT.email}`} className="font-display text-xl font-semibold text-primary hover:underline">{CONTACT.email}</a>
+            <p className="text-sm uppercase tracking-widest text-navy-foreground/80">Email</p>
+            <a href={`mailto:${CONTACT.email}`} className="font-display text-xl font-semibold text-leaf-bright hover:underline">{CONTACT.email}</a>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-widest text-muted-foreground">Phone</p>
-            <a href={CONTACT.phoneHref} className="font-display text-xl font-semibold text-primary hover:underline">{CONTACT.phone}</a>
+            <p className="text-sm uppercase tracking-widest text-navy-foreground/80">Phone</p>
+            <a href={CONTACT.phoneHref} className="font-display text-xl font-semibold text-leaf-bright hover:underline">{CONTACT.phone}</a>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-widest text-muted-foreground">Based in</p>
+            <p className="text-sm uppercase tracking-widest text-navy-foreground/80">Based in</p>
             <p className="font-display text-xl font-semibold">Telford, Shropshire</p>
           </div>
         </div>
