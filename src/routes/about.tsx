@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { PageHeader, SiteLayout } from "@/components/SiteLayout";
 import portraitAsset from "@/assets/founder-portrait.png.asset.json";
-import mauritiusAsset from "@/assets/mauritius-header.jpg.asset.json";
+import leMorneAsset from "@/assets/le-morne-lagoon.jpg.asset.json";
 import { Leaf, Map, Palette, Presentation, Printer } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -115,7 +115,7 @@ function About() {
         eyebrow="About us"
         title="Science. Creativity. A different way of thinking."
         intro="Envad was created from two things that have shaped much of my life: a passion for the environment and a passion for creating."
-        bgImage={mauritiusAsset.url}
+        bgImage={leMorneAsset.url}
       />
 
       {/* Part one — the story, in text */}

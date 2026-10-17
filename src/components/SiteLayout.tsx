@@ -43,7 +43,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div className="text-sm text-navy/60 sm:text-right">
             <p>© {new Date().getFullYear()} Envad Ltd</p>
             <p className="mt-2 text-xs leading-relaxed text-navy/45">
-              Mauritius photograph: “Le Morne Peninsula in Mauritius” by dronepicr, CC BY 2.0, via Wikimedia Commons.
+              Mauritius photograph: “Mauritius Lagoon next to Le Morne 3” by otterboris, CC BY 3.0, via Wikimedia
+              Commons.
             </p>
           </div>
         </div>
