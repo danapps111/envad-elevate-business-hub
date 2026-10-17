@@ -1,36 +1,221 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, SiteLayout } from "@/components/SiteLayout";
+import { Leaf, Map, Palette, Presentation, Printer } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+type Bring = {
+  title: string;
+  tagline: string;
+  text: string;
+  Icon: LucideIcon;
+  tint: string;
+  ink: string;
+};
+
+// "What we bring" — icon cards.
+const BRINGS: Bring[] = [
+  {
+    title: "Environmental Expertise",
+    tagline: "Science-led. Practical. Experienced.",
+    text: "Environmental consultancy informed by real-world experience in environmental management, remediation, contaminated land, permitting, water quality, air quality and environmental assessment.",
+    Icon: Leaf,
+    tint: "bg-tint-leaf",
+    ink: "text-leaf",
+  },
+  {
+    title: "Mapping & Data",
+    tagline: "Turning information into insight.",
+    text: "GIS mapping, spatial analysis, data consolidation and environmental reporting that make complex information easier to understand, manage and communicate.",
+    Icon: Map,
+    tint: "bg-tint-sky",
+    ink: "text-sky",
+  },
+  {
+    title: "Training & Knowledge",
+    tagline: "Making technical subjects accessible.",
+    text: "Professional training, workshops and international learning designed to turn specialist knowledge into practical skills people can apply.",
+    Icon: Presentation,
+    tint: "bg-tint-sun",
+    ink: "text-sun",
+  },
+  {
+    title: "Creative Design",
+    tagline: "Ideas made visible.",
+    text: "Branding, graphic design and visual communication developed with the same attention to detail and problem-solving approach used in our technical work.",
+    Icon: Palette,
+    tint: "bg-tint-sky",
+    ink: "text-sky",
+  },
+  {
+    title: "Design, Print & Engraving",
+    tagline: "From concept to something tangible.",
+    text: "Bespoke merchandise, printing and engraving that transform ideas and brands into physical products.",
+    Icon: Printer,
+    tint: "bg-tint-leaf",
+    ink: "text-leaf",
+  },
+];
+
+const MOTTO = ["Think scientifically.", "Create intelligently.", "Deliver practically."];
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Envad Ltd" },
-      { name: "description", content: "Envad Ltd is a Telford-based environmental consultancy specialising in air dispersion modelling, GIS and 3D visualisation." },
+      {
+        name: "description",
+        content:
+          "Envad Ltd brings environmental science and creative design together — consultancy, GIS and mapping, training, branding, printing and engraving.",
+      },
       { property: "og:title", content: "About Envad Ltd" },
-      { property: "og:description", content: "A Shropshire environmental consultancy serving the UK and internationally." },
+      {
+        property: "og:description",
+        content:
+          "Science, creativity and a different way of thinking: what Envad Ltd brings to every project.",
+      },
     ],
   }),
   component: About,
 });
 
-const points = ["Air dispersion modelling (ADMS & AERMOD)", "GIS mapping with ArcGIS Pro", "3D rendering & visual solutions", "Contamination & remediation expertise"];
+function Section({ heading, children }: { heading: string; children: React.ReactNode }) {
+  return (
+    <div className="mt-14 border-t border-navy/10 pt-10 first:mt-0 first:border-0 first:pt-0">
+      <h2 className="font-display text-2xl font-bold text-navy sm:text-3xl">{heading}</h2>
+      <div className="mt-5 space-y-5 text-lg leading-relaxed text-navy/75">{children}</div>
+    </div>
+  );
+}
+
+function BringCard({ item, wide }: { item: Bring; wide: boolean }) {
+  const { title, tagline, text, Icon, tint, ink } = item;
+  return (
+    <div
+      className={`flex h-full flex-col rounded-xl border bg-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-primary hover:shadow-md ${
+        wide ? "lg:col-span-3" : "lg:col-span-2"
+      }`}
+    >
+      <span className={`flex h-12 w-12 items-center justify-center rounded-full ${tint}`}>
+        <Icon className={`h-6 w-6 ${ink}`} strokeWidth={1.75} />
+      </span>
+      <h3 className="mt-5 font-display text-lg font-semibold text-navy">{title}</h3>
+      <p className="mt-1 text-sm font-medium text-primary">{tagline}</p>
+      <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{text}</p>
+    </div>
+  );
+}
 
 function About() {
   return (
     <SiteLayout>
-      <PageHeader eyebrow="About us" title="A first-rate environmental consultant in Telford." intro="Based in Shropshire, providing services across the UK and internationally." />
-      <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2">
-        <div className="space-y-4 text-lg text-muted-foreground">
-          <p>Envad Ltd is focused on the environmental consultancy sector, helping businesses navigate permitting, planning and compliance with clear, reliable evidence.</p>
-          <p>Danen has expertise in air dispersion modelling using ADMS and AERMOD, and provides visual solutions including GIS and 3D rendering — turning technical results into maps and visuals that regulators and stakeholders understand.</p>
+      <PageHeader
+        eyebrow="About us"
+        title="Science. Creativity. A different way of thinking."
+        intro="Envad was created from two things that have shaped much of my life: a passion for the environment and a passion for creating."
+      />
+
+      {/* Part one — the story, in text */}
+      <section className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+        <Section heading="From Mauritius to environmental science">
+          <p>
+            I grew up in Mauritius, surrounded by mountains, rivers, forests, wildlife and the ocean. That
+            connection with nature inspired me to pursue a career in environmental science and continues to
+            influence how I think, work and create today.
+          </p>
+          <p>
+            It is also the inspiration behind the Envad identity. The colours are drawn from the Mauritian flag,
+            while the natural elements within the brand reflect the landscapes and biodiversity that first sparked
+            my interest in the environment.
+          </p>
+          <p>
+            My professional journey has taken me from Environmental Management and Geography to a PhD in
+            Environmental Management and Remediation, followed by more than fifteen years working across
+            environmental consultancy, scientific research, environmental monitoring, higher education and
+            professional training.
+          </p>
+          <p>
+            My experience spans contaminated land, water quality, environmental permitting, air quality, GIS and
+            mapping, environmental impact assessment, remediation and environmental management.
+          </p>
+          <p>
+            I have worked across consultancy, academia and the public sector, including advising the Ministry of
+            Environment in Mauritius, and have been involved in projects ranging from environmental monitoring and
+            laboratory development to planning, permitting, research and commercial environmental services.
+          </p>
+          <p>
+            Envad grew from that experience: a way of bringing together technical knowledge, practical
+            problem-solving and a more flexible approach to helping organisations.
+          </p>
+        </Section>
+
+        <Section heading="Where science meets creativity">
+          <p>Envad was never intended to be a conventional environmental consultancy.</p>
+          <p>
+            I have always been a creative person. Alongside science, I enjoy design, visual communication,
+            creating things and turning ideas into something tangible. Over time, those two sides naturally began
+            to merge.
+          </p>
+          <p>
+            Good environmental work is not only about producing technically correct information. It is also about
+            communicating complex ideas clearly, presenting information effectively and creating solutions that
+            people can actually use. That thinking has allowed Envad to grow beyond traditional consultancy.
+          </p>
+          <p>
+            Today, our work can move from environmental permitting, GIS mapping and data management to branding,
+            design, merchandise, engraving, events and training. They may appear to be very different services,
+            but they all begin in the same place:
+          </p>
+          <p className="border-l-2 border-primary pl-5 font-display text-xl font-semibold leading-snug text-navy">
+            Understand the problem. Find the solution. Communicate it well.
+          </p>
+        </Section>
+      </section>
+
+      {/* Part two — what we bring, as icon cards */}
+      <section className="border-y bg-secondary text-navy">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="text-center">
+            <p className="text-sm font-medium uppercase tracking-widest text-primary">What we bring</p>
+            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Five strengths behind every project</h2>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
+            {BRINGS.map((item, i) => (
+              <BringCard key={item.title} item={item} wide={i >= 3} />
+            ))}
+          </div>
         </div>
-        <ul className="space-y-3">
-          {points.map((p) => (
-            <li key={p} className="flex items-center gap-3 rounded-lg border bg-card p-4 font-medium">
-              <span className="h-2.5 w-2.5 rounded-full bg-primary" />{p}
-            </li>
-          ))}
-        </ul>
+      </section>
+
+      {/* Closing */}
+      <section className="contour-bg text-navy">
+        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+          <p className="text-sm font-medium uppercase tracking-widest text-primary">One business. Two passions.</p>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+            Environmental scientist. Consultant. Researcher. Educator. Designer. Maker.
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-navy/75">
+            Rather than separating these different parts of what I do, Envad brings them together. The result is a
+            business that can approach a problem technically, strategically and creatively — and develop solutions
+            that are not only scientifically sound, but clear, practical and engaging.
+          </p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {MOTTO.map((line) => (
+              <p key={line} className="rounded-lg border border-navy/10 bg-white/70 px-4 py-5 font-display text-lg font-semibold">
+                {line}
+              </p>
+            ))}
+          </div>
+          <p className="mt-8 text-navy/70">
+            And behind it all is a little piece of Mauritius — the place where my connection with nature, colour and
+            creativity began.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-10 inline-block rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:bg-primary/90"
+          >
+            Talk to us
+          </Link>
+        </div>
       </section>
     </SiteLayout>
   );
