@@ -175,3 +175,12 @@
   background-image: radial-gradient(circle at 15% 0%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 55%),
     radial-gradient(circle at 90% 100%, color-mix(in oklab, var(--sun) 14%, transparent), transparent 45%);
 }
+/* Light wash laid over a header photo so navy text stays readable. */
+@utility header-scrim {
+  background: linear-gradient(
+    180deg,
+    oklch(1 0 0 / 92%) 0%,
+    oklch(1 0 0 / 80%) 55%,
+    color-mix(in oklab, var(--background) 94%, transparent) 100%
+  );
+}

@@ -47,10 +47,26 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   );
 }
 
-export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
+export function PageHeader({
+  eyebrow,
+  title,
+  intro,
+  bgImage,
+}: {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  bgImage?: string;
+}) {
   return (
-    <section className="contour-bg text-navy">
-      <div className="mx-auto max-w-6xl px-6 py-20">
+    <section className="contour-bg relative overflow-hidden text-navy">
+      {bgImage ? (
+        <>
+          <img src={bgImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="header-scrim absolute inset-0" />
+        </>
+      ) : null}
+      <div className="relative mx-auto max-w-6xl px-6 py-20">
         <p className="text-sm font-medium uppercase tracking-widest text-primary">{eyebrow}</p>
         <h1 className="mt-3 max-w-3xl text-4xl font-bold sm:text-5xl">{title}</h1>
         <p className="mt-4 max-w-2xl text-lg text-navy/70">{intro}</p>
