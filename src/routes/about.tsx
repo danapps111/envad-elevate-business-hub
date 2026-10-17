@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { PageHeader, SiteLayout } from "@/components/SiteLayout";
+import portraitAsset from "@/assets/founder-portrait.png.asset.json";
+import mauritiusAsset from "@/assets/mauritius-header.jpg.asset.json";
 import { Leaf, Map, Palette, Presentation, Printer } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -113,10 +115,30 @@ function About() {
         eyebrow="About us"
         title="Science. Creativity. A different way of thinking."
         intro="Envad was created from two things that have shaped much of my life: a passion for the environment and a passion for creating."
+        bgImage={mauritiusAsset.url}
       />
 
       {/* Part one — the story, in text */}
       <section className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+        <figure className="mb-10 grid items-center gap-6 sm:grid-cols-[auto_1fr] sm:gap-8">
+          <img
+            src={portraitAsset.url}
+            alt="Danen Appasamy, founder of Envad Ltd"
+            width={1122}
+            height={1402}
+            loading="lazy"
+            className="mx-auto h-64 w-52 rounded-2xl object-cover object-top shadow-lg ring-1 ring-navy/10 sm:h-72 sm:w-60"
+          />
+          <figcaption className="text-center sm:text-left">
+            <p className="font-display text-2xl font-bold text-navy">Danen Appasamy</p>
+            <p className="mt-1 text-sm font-medium uppercase tracking-widest text-primary">Founder — Envad Ltd</p>
+            <p className="mt-4 text-[15px] leading-relaxed text-navy/70">
+              PhD in Environmental Management and Remediation, with more than fifteen years across environmental
+              consultancy, scientific research, monitoring, higher education and professional training.
+            </p>
+          </figcaption>
+        </figure>
+
         <Section heading="From Mauritius to environmental science">
           <p>
             I grew up in Mauritius, surrounded by mountains, rivers, forests, wildlife and the ocean. That

@@ -40,17 +40,38 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <a href={`mailto:${CONTACT.email}`} className="mt-2 block hover:text-primary">{CONTACT.email}</a>
             <a href={CONTACT.phoneHref} className="block hover:text-primary">{CONTACT.phone}</a>
           </div>
-          <div className="text-sm text-navy/60 sm:text-right">© {new Date().getFullYear()} Envad Ltd</div>
+          <div className="text-sm text-navy/60 sm:text-right">
+            <p>© {new Date().getFullYear()} Envad Ltd</p>
+            <p className="mt-2 text-xs leading-relaxed text-navy/45">
+              Mauritius photograph: “Le Morne Peninsula in Mauritius” by dronepicr, CC BY 2.0, via Wikimedia Commons.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
   );
 }
 
-export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
+export function PageHeader({
+  eyebrow,
+  title,
+  intro,
+  bgImage,
+}: {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  bgImage?: string;
+}) {
   return (
-    <section className="contour-bg text-navy">
-      <div className="mx-auto max-w-6xl px-6 py-20">
+    <section className="contour-bg relative overflow-hidden text-navy">
+      {bgImage ? (
+        <>
+          <img src={bgImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="header-scrim lg:header-scrim-wide absolute inset-0" />
+        </>
+      ) : null}
+      <div className="relative mx-auto max-w-6xl px-6 py-20">
         <p className="text-sm font-medium uppercase tracking-widest text-primary">{eyebrow}</p>
         <h1 className="mt-3 max-w-3xl text-4xl font-bold sm:text-5xl">{title}</h1>
         <p className="mt-4 max-w-2xl text-lg text-navy/70">{intro}</p>
