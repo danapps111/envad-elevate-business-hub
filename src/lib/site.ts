@@ -8,4 +8,6 @@ export const SERVICES = [
   { title: "Research & Development", body: "Bespoke scientific support for remediation strategies and new process designs, drawing on deep contamination expertise." },
   { title: "Training", body: "Tailored training for consultancies and industry — from WAMITAB revision sessions to Environmental Management System toolbox talks." },
   { title: "International Companies", body: "Training, translation and business communication support for international companies entering the UK market." },
+  { title: "Branding & Marketing", body: "Logo design and brand identity, marketing materials, websites and campaigns — everything you need to present your business professionally." },
+  { title: "Company Merchandise", body: "Branded merchandise for your team and clients — printing, embroidery, engraving and more on clothing, drinkware, signage and gifts." },
 ];
