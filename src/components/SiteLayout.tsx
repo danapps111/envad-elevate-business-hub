@@ -40,7 +40,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <a href={`mailto:${CONTACT.email}`} className="mt-2 block hover:text-primary">{CONTACT.email}</a>
             <a href={CONTACT.phoneHref} className="block hover:text-primary">{CONTACT.phone}</a>
           </div>
-          <div className="text-sm text-navy/60 sm:text-right">© {new Date().getFullYear()} Envad Ltd</div>
+          <div className="text-sm text-navy/60 sm:text-right">
+            <p>© {new Date().getFullYear()} Envad Ltd</p>
+            <p className="mt-2 text-xs leading-relaxed text-navy/45">
+              Mauritius photograph: “Le Morne Peninsula in Mauritius” by dronepicr, CC BY 2.0, via Wikimedia Commons.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
