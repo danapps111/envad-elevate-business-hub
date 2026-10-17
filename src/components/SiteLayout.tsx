@@ -92,7 +92,7 @@ export function PageHeader({
           <div
             className={
               bgImage
-                ? "rounded-2xl bg-white/72 p-5 shadow-sm ring-1 ring-white/60 backdrop-blur-md sm:bg-white/80 sm:p-8 lg:max-w-2xl"
+                ? "rounded-2xl bg-white/72 p-5 shadow-sm ring-1 ring-white/60 backdrop-blur-md sm:bg-white/80 sm:p-8 lg:max-w-xl"
                 : undefined
             }
           >
