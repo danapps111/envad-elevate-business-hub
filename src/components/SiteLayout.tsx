@@ -78,7 +78,7 @@ export function PageHeader({
         </>
       ) : null}
       <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-20">
-        <div className={bgImage ? "flex min-h-[430px] flex-col justify-end sm:min-h-0 sm:block" : undefined}>
+        <div className={bgImage ? "flex min-h-[560px] flex-col justify-end sm:min-h-0 sm:block" : undefined}>
           <div
             className={
               bgImage
