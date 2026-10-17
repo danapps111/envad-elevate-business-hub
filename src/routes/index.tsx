@@ -45,7 +45,7 @@ function Index() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.slice(0, 6).map((s, i) => (
             <div key={s.title} className="group rounded-lg border bg-card p-6 transition hover:-translate-y-1 hover:border-primary hover:shadow-lg">
-              <span className="font-display text-sm text-muted-foreground">0{i + 1}</span>
+              <span className="font-display text-sm font-bold text-sun">0{i + 1}</span>
               <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
             </div>
@@ -66,7 +66,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="contour-bg text-navy-foreground">
+      <section className="contour-bg text-navy">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-6 py-16">
           <h2 className="text-3xl font-bold">Have a project in mind?</h2>
           <Link to="/contact" className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90">Talk to us</Link>
