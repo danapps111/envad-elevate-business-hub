@@ -14,13 +14,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-30 border-b border-navy/10 bg-white/90 text-navy backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-          <Link to="/" className="flex items-center">
-            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-11 w-auto" width={220} height={110} />
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-5 sm:py-7">
+          <Link to="/" className="flex shrink-0 items-center">
+            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-16 w-auto sm:h-24" width={320} height={180} />
           </Link>
-          <nav className="flex items-center gap-1 text-sm sm:gap-4">
+          <nav className="flex w-full items-center justify-between gap-1 text-sm sm:w-auto sm:justify-end sm:gap-6 sm:text-base">
             {nav.map((n) => (
-              <Link key={n.to} to={n.to} className="rounded-md px-2 py-1 text-navy/70 transition hover:text-navy"
+              <Link key={n.to} to={n.to} className="rounded-md px-2 py-2 text-navy/70 transition hover:text-navy"
                 activeProps={{ className: "font-semibold text-primary" }} activeOptions={{ exact: true }}>
                 {n.label}
               </Link>
