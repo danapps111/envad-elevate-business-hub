@@ -236,7 +236,7 @@ function About() {
           </p>
           <Link
             to="/contact"
-            className="mt-10 inline-block rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:bg-primary/90"
+            className="mt-10 inline-block rounded-md bg-leaf-bright px-6 py-3 font-medium text-deep transition hover:bg-leaf-bright/90"
           >
             Talk to us
           </Link>
