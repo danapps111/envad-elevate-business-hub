@@ -29,20 +29,22 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main className="flex-1">{children}</main>
-      <footer className="contour-bg text-navy">
+      <footer className="deep-glow text-navy-foreground">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 sm:grid-cols-3">
           <div>
-            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-12 w-auto" width={240} height={120} loading="lazy" />
-            <p className="mt-3 text-sm text-navy/70">Environmental consultancy based in Telford, Shropshire — serving the UK and internationally.</p>
+            <span className="inline-flex rounded-xl bg-card px-4 py-3 shadow-sm">
+              <img src={logoAsset.url} alt="Envad Ltd logo" className="h-10 w-auto" width={240} height={120} loading="lazy" />
+            </span>
+            <p className="mt-4 text-sm text-navy-foreground/75">Environmental consultancy based in Telford, Shropshire — serving the UK and internationally.</p>
           </div>
           <div className="text-sm">
-            <p className="font-display font-semibold text-primary">Contact</p>
-            <a href={`mailto:${CONTACT.email}`} className="mt-2 block hover:text-primary">{CONTACT.email}</a>
-            <a href={CONTACT.phoneHref} className="block hover:text-primary">{CONTACT.phone}</a>
+            <p className="font-display font-semibold text-leaf-bright">Contact</p>
+            <a href={`mailto:${CONTACT.email}`} className="mt-2 block text-navy-foreground/85 transition hover:text-navy-foreground">{CONTACT.email}</a>
+            <a href={CONTACT.phoneHref} className="block text-navy-foreground/85 transition hover:text-navy-foreground">{CONTACT.phone}</a>
           </div>
-          <div className="text-sm text-navy/60 sm:text-right">
+          <div className="text-sm text-navy-foreground/60 sm:text-right">
             <p>© {new Date().getFullYear()} Envad Ltd</p>
-            <p className="mt-2 text-xs leading-relaxed text-navy/45">
+            <p className="mt-2 text-xs leading-relaxed text-navy-foreground/50">
               Mauritius photograph: “Mauritius Lagoon next to Le Morne 3” by otterboris, CC BY 3.0, via Wikimedia
               Commons.
             </p>
