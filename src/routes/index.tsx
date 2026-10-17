@@ -233,7 +233,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="contour-bg text-navy">
+      <section className="deep-glow text-navy-foreground">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-6 py-16">
           <h2 className="text-3xl font-bold">Have a project in mind?</h2>
           <Link to="/contact" className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90">Talk to us</Link>
