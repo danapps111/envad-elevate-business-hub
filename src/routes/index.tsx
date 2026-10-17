@@ -1,7 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { SERVICES } from "@/lib/site";
 import hero from "@/assets/hero.jpg";
+
+// Homepage mind map — hub position in SVG viewBox units (900 x 540).
+const HUB = { x: 450, y: 270 };
+const BRANCHES = [
+  { label: "Environmental Services", x: 770, y: 270 },
+  { label: "GIS & Mapping", x: 676, y: 132 },
+  { label: "ISO 9001", x: 450, y: 75 },
+  { label: "R&D", x: 224, y: 132 },
+  { label: "Training", x: 130, y: 270 },
+  { label: "International", x: 224, y: 408 },
+  { label: "Branding & Marketing", x: 450, y: 465 },
+  { label: "Merchandise", x: 676, y: 408 },
+];
+
+function branchPath(cx: number, cy: number, x: number, y: number, bend: number) {
+  const mx = (cx + x) / 2;
+  const my = (cy + y) / 2;
+  const dx = x - cx;
+  const dy = y - cy;
+  const len = Math.hypot(dx, dy) || 1;
+  return `M ${cx} ${cy} Q ${mx + (-dy / len) * bend} ${my + (dx / len) * bend} ${x} ${y}`;
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,17 +60,58 @@ function Index() {
           <div>
             <p className="text-sm font-medium uppercase tracking-widest text-primary">Expertise</p>
             <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What we cover</h2>
+            <p className="mt-2 max-w-xl text-muted-foreground">One team at the centre, and everything branches out from there. Each branch is covered in full detail on our Services page.</p>
           </div>
           <Link to="/services" className="text-sm font-medium text-primary hover:underline">All services →</Link>
         </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.slice(0, 6).map((s, i) => (
-            <div key={s.title} className="group rounded-lg border bg-card p-6 transition hover:-translate-y-1 hover:border-primary hover:shadow-lg">
-              <span className="font-display text-sm font-bold text-sun">0{i + 1}</span>
-              <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
-            </div>
+
+        {/* Mind map (tablet and up) */}
+        <div className="relative mx-auto mt-12 hidden h-[540px] max-w-[900px] md:block">
+          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 900 540" preserveAspectRatio="none" aria-hidden="true">
+            {BRANCHES.map((b, i) => (
+              <path
+                key={b.label}
+                d={branchPath(HUB.x, HUB.y, b.x, b.y, i % 2 === 0 ? 40 : -40)}
+                fill="none"
+                stroke="var(--border)"
+                strokeWidth="2"
+              />
+            ))}
+          </svg>
+          <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-navy text-center text-navy-foreground shadow-xl">
+            <span className="font-display text-xl font-bold tracking-tight">Envad Ltd</span>
+            <span className="mt-1 text-[11px] uppercase tracking-widest text-sun">One hub</span>
+          </div>
+          {BRANCHES.map((b, i) => (
+            <Link
+              key={b.label}
+              to="/services"
+              style={{ left: `${(b.x / 900) * 100}%`, top: `${(b.y / 540) * 100}%` }}
+              className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full border bg-card px-4 py-2 text-sm font-medium shadow-sm transition hover:-translate-y-[calc(50%+2px)] hover:border-primary hover:text-primary hover:shadow-md"
+            >
+              <span className={`h-2 w-2 rounded-full ${i % 2 === 0 ? "bg-leaf" : "bg-sun"}`} />
+              {b.label}
+            </Link>
           ))}
+        </div>
+
+        {/* Simple branch list (mobile) */}
+        <div className="mt-10 md:hidden">
+          <div className="mx-auto flex w-fit items-center justify-center rounded-full bg-navy px-6 py-3 text-center text-navy-foreground">
+            <span className="font-display text-lg font-bold">Envad Ltd</span>
+          </div>
+          <div className="mt-6 grid grid-cols-2 gap-3">
+            {BRANCHES.map((b, i) => (
+              <Link
+                key={b.label}
+                to="/services"
+                className="flex items-center gap-2 rounded-lg border bg-card px-3 py-3 text-sm font-medium shadow-sm transition hover:border-primary hover:text-primary"
+              >
+                <span className={`h-2 w-2 shrink-0 rounded-full ${i % 2 === 0 ? "bg-leaf" : "bg-sun"}`} />
+                {b.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
