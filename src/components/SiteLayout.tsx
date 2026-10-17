@@ -88,11 +88,11 @@ export function PageHeader({
         </>
       ) : null}
       <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-20">
-        <div className={bgImage ? "flex min-h-[560px] flex-col justify-end sm:min-h-0 sm:block" : undefined}>
+        <div className={bgImage ? "flex min-h-[560px] flex-col justify-end lg:min-h-0 lg:block" : undefined}>
           <div
             className={
               bgImage
-                ? "rounded-2xl bg-white/72 p-5 shadow-sm ring-1 ring-white/60 backdrop-blur-md sm:bg-white/80 sm:p-8 lg:max-w-xl"
+                ? "rounded-2xl bg-white/72 p-5 shadow-sm ring-1 ring-white/60 backdrop-blur-md sm:bg-white/80 sm:p-8 md:max-w-xl"
                 : undefined
             }
           >
