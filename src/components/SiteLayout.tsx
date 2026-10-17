@@ -58,21 +58,31 @@ export function PageHeader({
   title,
   intro,
   bgImage,
+  bgImageSmall,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
   bgImage?: string;
+  bgImageSmall?: string;
 }) {
   return (
     <section className="contour-bg relative overflow-hidden text-navy">
       {bgImage ? (
         <>
+          {bgImageSmall ? (
+            <img
+              src={bgImageSmall}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover sm:hidden"
+            />
+          ) : null}
           <img
             src={bgImage}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-[center_72%]"
+            className="absolute inset-0 h-full w-full object-cover object-[center_72%] hidden sm:block"
           />
           <div className="header-photo-fade absolute inset-0" />
         </>
