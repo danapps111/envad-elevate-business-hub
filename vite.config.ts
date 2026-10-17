@@ -7,6 +7,20 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    // Keep React and TanStack Router in one pre-bundled graph. When the router is
+    // served raw from node_modules while React comes from Vite's optimized copy,
+    // the app ends up with two Reacts and every <Link> crashes on a null context.
+    optimizeDeps: {
+      include: [
+        "react",
+        "react/jsx-runtime",
+        "react-dom",
+        "@tanstack/react-router",
+        "@tanstack/react-start",
+      ],
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
