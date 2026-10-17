@@ -18,18 +18,18 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden bg-navy text-navy-foreground">
-        <img src={hero} alt="Aerial view of countryside with mapping contours" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
+      <section className="relative overflow-hidden text-navy">
+        <img src={hero} alt="Sunlit green countryside with a winding turquoise river and a flowering flame tree" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
         <div className="hero-overlay absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-6 py-28 sm:py-40">
-          <p className="text-sm font-medium uppercase tracking-widest text-leaf">Environmental Consultancy · Telford</p>
+          <p className="text-sm font-medium uppercase tracking-widest text-primary">Environmental Consultancy · Telford</p>
           <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-tight sm:text-6xl">Clear data for confident environmental decisions.</h1>
-          <p className="mt-6 max-w-xl text-lg text-navy-foreground/80">
+          <p className="mt-6 max-w-xl text-lg text-navy/80">
             GIS mapping, air dispersion modelling and compliance support for permitting and planning — across the UK and internationally.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/contact" className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:bg-primary/90">Get in touch</Link>
-            <Link to="/services" className="rounded-md border border-navy-foreground/30 px-6 py-3 font-medium transition hover:bg-navy-foreground/10">Our services</Link>
+            <Link to="/contact" className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground shadow-sm transition hover:bg-primary/90">Get in touch</Link>
+            <Link to="/services" className="rounded-md border border-navy/30 bg-white/60 px-6 py-3 font-medium transition hover:bg-white">Our services</Link>
           </div>
         </div>
       </section>
