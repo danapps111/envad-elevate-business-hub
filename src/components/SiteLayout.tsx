@@ -68,14 +68,27 @@ export function PageHeader({
     <section className="contour-bg relative overflow-hidden text-navy">
       {bgImage ? (
         <>
-          <img src={bgImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="header-scrim lg:header-scrim-wide absolute inset-0" />
+          <img
+            src={bgImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-[center_72%]"
+          />
+          <div className="header-photo-fade absolute inset-0" />
         </>
       ) : null}
       <div className="relative mx-auto max-w-6xl px-6 py-20">
-        <p className="text-sm font-medium uppercase tracking-widest text-primary">{eyebrow}</p>
-        <h1 className="mt-3 max-w-3xl text-4xl font-bold sm:text-5xl">{title}</h1>
-        <p className="mt-4 max-w-2xl text-lg text-navy/70">{intro}</p>
+        <div
+          className={
+            bgImage
+              ? "rounded-2xl bg-white/80 p-6 shadow-sm ring-1 ring-white/60 backdrop-blur-[3px] sm:p-8 lg:max-w-2xl"
+              : undefined
+          }
+        >
+          <p className="text-sm font-medium uppercase tracking-widest text-primary">{eyebrow}</p>
+          <h1 className="mt-3 max-w-3xl text-4xl font-bold sm:text-5xl">{title}</h1>
+          <p className="mt-4 max-w-2xl text-lg text-navy/70">{intro}</p>
+        </div>
       </div>
     </section>
   );
