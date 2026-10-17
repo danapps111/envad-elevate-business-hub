@@ -24,6 +24,25 @@ function branchPath(cx: number, cy: number, x: number, y: number, bend: number) 
   return `M ${cx} ${cy} Q ${mx + (-dy / len) * bend} ${my + (dx / len) * bend} ${x} ${y}`;
 }
 
+// Placeholder quotes — replace with real client testimonials before launch.
+const TESTIMONIALS = [
+  {
+    quote: "The mapping and modelling we were given made a complicated application far easier to defend at committee.",
+    role: "Development Planner",
+    context: "Residential scheme, West Midlands",
+  },
+  {
+    quote: "Clear reports, quick answers and a genuine understanding of what the regulator actually wants to see.",
+    role: "Site Manager",
+    context: "Renewable energy project",
+  },
+  {
+    quote: "Envad picked up the project quickly and delivered exactly what we needed, on time and on budget.",
+    role: "Company Director",
+    context: "Environmental consultancy client",
+  },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -125,6 +144,30 @@ function Index() {
             <p>Envad Ltd is based in Shropshire and works with clients across the UK and abroad. Led by Danen, we combine air dispersion modelling, GIS and 3D visualisation to turn complex environmental data into clear answers.</p>
             <Link to="/about" className="mt-4 inline-block font-medium text-primary hover:underline">Read more →</Link>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="text-center">
+          <p className="text-sm font-medium uppercase tracking-widest text-primary">Testimonials</p>
+          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What clients say</h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">Short words from the people we work with.</p>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {TESTIMONIALS.map((t) => (
+            <figure key={t.role} className="flex h-full flex-col rounded-xl border bg-card p-6 shadow-sm">
+              <div className="flex gap-1 text-sun" role="img" aria-label="Rated 5 out of 5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
+              <blockquote className="mt-4 flex-1 leading-relaxed text-navy/80">“{t.quote}”</blockquote>
+              <figcaption className="mt-6 border-t border-navy/10 pt-4">
+                <span className="block font-display font-semibold text-navy">{t.role}</span>
+                <span className="mt-1 block text-sm text-muted-foreground">{t.context}</span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
