@@ -68,7 +68,7 @@ export function PageHeader({
       {bgImage ? (
         <>
           <img src={bgImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="header-scrim absolute inset-0" />
+          <div className="header-scrim lg:header-scrim-wide absolute inset-0" />
         </>
       ) : null}
       <div className="relative mx-auto max-w-6xl px-6 py-20">

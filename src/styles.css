@@ -179,8 +179,22 @@
 @utility header-scrim {
   background: linear-gradient(
     180deg,
-    oklch(1 0 0 / 92%) 0%,
-    oklch(1 0 0 / 80%) 55%,
-    color-mix(in oklab, var(--background) 94%, transparent) 100%
+    color-mix(in oklab, var(--background) 78%, transparent) 0%,
+    color-mix(in oklab, var(--background) 64%, transparent) 60%,
+    color-mix(in oklab, var(--background) 92%, transparent) 100%
   );
+}
+/* On wide screens the text sits left, so the wash fades out towards the right. */
+@utility header-scrim-wide {
+  background: linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--background) 92%, transparent) 0%,
+      color-mix(in oklab, var(--background) 74%, transparent) 45%,
+      color-mix(in oklab, var(--background) 36%, transparent) 100%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in oklab, var(--background) 40%, transparent) 100%
+    );
 }
