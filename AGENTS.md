@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Content rules
+
+- Anything presented as a real, named place (e.g. Mauritius) must be a real photograph under a commercial-use licence, never an AI-generated scene; keep the photographer and licence credited on the page so the site stays compliant.

@@ -120,7 +120,7 @@ function About() {
 
       {/* Part one — the story, in text */}
       <section className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
-        <figure className="mb-14 grid items-center gap-6 border-b border-navy/10 pb-12 sm:grid-cols-[auto_1fr] sm:gap-8">
+        <figure className="mb-10 grid items-center gap-6 sm:grid-cols-[auto_1fr] sm:gap-8">
           <img
             src={portraitAsset.url}
             alt="Danen Appasamy, founder of Envad Ltd"
