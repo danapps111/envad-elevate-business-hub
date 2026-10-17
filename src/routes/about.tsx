@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { PageHeader, SiteLayout } from "@/components/SiteLayout";
 import { Leaf, Map, Palette, Presentation, Printer } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
