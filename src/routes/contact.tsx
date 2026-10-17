@@ -32,15 +32,15 @@ function Contact() {
       <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1fr_1.4fr]">
         <div className="deep-glow space-y-7 self-start rounded-2xl p-8 text-navy-foreground shadow-sm">
           <div>
-            <p className="text-sm uppercase tracking-widest text-navy-foreground/60">Email</p>
+            <p className="text-sm uppercase tracking-widest text-navy-foreground/80">Email</p>
             <a href={`mailto:${CONTACT.email}`} className="font-display text-xl font-semibold text-leaf-bright hover:underline">{CONTACT.email}</a>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-widest text-navy-foreground/60">Phone</p>
+            <p className="text-sm uppercase tracking-widest text-navy-foreground/80">Phone</p>
             <a href={CONTACT.phoneHref} className="font-display text-xl font-semibold text-leaf-bright hover:underline">{CONTACT.phone}</a>
           </div>
           <div>
-            <p className="text-sm uppercase tracking-widest text-navy-foreground/60">Based in</p>
+            <p className="text-sm uppercase tracking-widest text-navy-foreground/80">Based in</p>
             <p className="font-display text-xl font-semibold">Telford, Shropshire</p>
           </div>
         </div>

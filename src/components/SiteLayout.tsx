@@ -35,16 +35,16 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <span className="inline-flex rounded-xl bg-card px-4 py-3 shadow-sm">
               <img src={logoAsset.url} alt="Envad Ltd logo" className="h-10 w-auto" width={240} height={120} loading="lazy" />
             </span>
-            <p className="mt-4 text-sm text-navy-foreground/75">Environmental consultancy based in Telford, Shropshire — serving the UK and internationally.</p>
+            <p className="mt-4 text-sm text-navy-foreground/90">Environmental consultancy based in Telford, Shropshire — serving the UK and internationally.</p>
           </div>
           <div className="text-sm">
             <p className="font-display font-semibold text-leaf-bright">Contact</p>
-            <a href={`mailto:${CONTACT.email}`} className="mt-2 block text-navy-foreground/85 transition hover:text-navy-foreground">{CONTACT.email}</a>
-            <a href={CONTACT.phoneHref} className="block text-navy-foreground/85 transition hover:text-navy-foreground">{CONTACT.phone}</a>
+            <a href={`mailto:${CONTACT.email}`} className="mt-2 block text-navy-foreground/95 transition hover:text-navy-foreground">{CONTACT.email}</a>
+            <a href={CONTACT.phoneHref} className="block text-navy-foreground/95 transition hover:text-navy-foreground">{CONTACT.phone}</a>
           </div>
           <div className="text-sm text-navy-foreground/75 sm:text-right">
             <p>© {new Date().getFullYear()} Envad Ltd</p>
-            <p className="mt-2 text-xs leading-relaxed text-navy-foreground/65">
+            <p className="mt-2 text-xs leading-relaxed text-navy-foreground/80">
               Mauritius photograph: “Mauritius Lagoon next to Le Morne 3” by otterboris, CC BY 3.0, via Wikimedia
               Commons.
             </p>

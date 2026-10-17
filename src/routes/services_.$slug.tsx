@@ -145,7 +145,7 @@ function ServiceDetailPage() {
 
         {detail.closing ? (
           <div className="deep-glow mt-12 rounded-2xl p-6 text-navy-foreground sm:p-8">
-            <p className="text-[17px] leading-relaxed text-navy-foreground/85">{detail.closing}</p>
+            <p className="text-[17px] leading-relaxed text-navy-foreground/95">{detail.closing}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link
                 to="/contact"
