@@ -102,7 +102,8 @@ function Index() {
     <SiteLayout>
       <section className="relative overflow-hidden text-navy">
         <img src={heroAsset.url} alt="View across the lagoon from Le Morne toward Île aux Bénitiers, Mauritius" width={1920} height={897} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="hero-overlay absolute inset-0" />
+        <div className="hero-overlay absolute inset-0 hidden sm:block" />
+        <div className="hero-overlay-mobile absolute inset-0 sm:hidden" />
         <div className="relative mx-auto max-w-6xl px-6 py-28 sm:py-40">
           <p className="text-sm font-medium uppercase tracking-widest text-primary">Environmental Consultancy · Telford</p>
           <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-tight sm:text-6xl">Clear data for confident environmental decisions.</h1>
