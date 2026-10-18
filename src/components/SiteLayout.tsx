@@ -45,7 +45,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div className="text-sm text-navy-foreground/75 sm:text-right">
             <p>© {new Date().getFullYear()} Envad Ltd</p>
             <p className="mt-2 text-xs leading-relaxed text-navy-foreground/80">
-              Photograph: Le Morne Brabant seen across the lagoon at Le Morne, Mauritius — Danen Appasamy, Envad Ltd.
+              Photographs: Le Morne Brabant seen across the lagoon, the view from Le Morne toward Île aux Bénitiers, and a waterfall in the Mauritian highlands — all by Danen Appasamy, Envad Ltd.
             </p>
           </div>
         </div>
