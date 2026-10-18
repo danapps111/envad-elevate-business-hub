@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import logoAsset from "@/assets/envad-logo.png.asset.json";
-import hero from "@/assets/hero.jpg";
+import heroAsset from "@/assets/home-hero.jpg.asset.json";
 import {
   BarChart3,
   CalendarDays,
@@ -101,7 +101,7 @@ function Index() {
   return (
     <SiteLayout>
       <section className="relative overflow-hidden text-navy">
-        <img src={hero} alt="Sunlit green countryside with a winding turquoise river and a flowering flame tree" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroAsset.url} alt="View across the lagoon from Le Morne toward Île aux Bénitiers, Mauritius" width={1920} height={897} className="absolute inset-0 h-full w-full object-cover" />
         <div className="hero-overlay absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-6 py-28 sm:py-40">
           <p className="text-sm font-medium uppercase tracking-widest text-primary">Environmental Consultancy · Telford</p>
