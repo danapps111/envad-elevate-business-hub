@@ -182,9 +182,9 @@
 @utility hero-overlay-mobile {
   background: linear-gradient(
     180deg,
-    oklch(1 0 0 / 90%) 0%,
-    oklch(1 0 0 / 78%) 45%,
-    oklch(1 0 0 / 55%) 100%
+    oklch(1 0 0 / 92%) 0%,
+    oklch(1 0 0 / 84%) 45%,
+    oklch(1 0 0 / 70%) 100%
   );
 }
 @utility contour-bg {
