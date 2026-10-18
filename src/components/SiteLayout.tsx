@@ -83,7 +83,7 @@ export function PageHeader({
             src={bgImage}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-[center_72%] hidden sm:block"
+            className="absolute inset-0 h-full w-full object-cover object-[center_20%] hidden sm:block"
           />
           <div className="header-photo-fade absolute inset-0" />
         </>
