@@ -83,13 +83,13 @@ export function PageHeader({
             src={bgImage}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-[center_25%] hidden sm:block"
+            className="absolute inset-0 h-full w-full object-cover object-[center_0%] hidden sm:block"
           />
           <div className="header-photo-fade absolute inset-0" />
         </>
       ) : null}
       <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-20">
-        <div className={bgImage ? "flex min-h-[560px] flex-col justify-end lg:min-h-[640px] lg:block" : undefined}>
+        <div className={bgImage ? "flex min-h-[560px] flex-col justify-end lg:min-h-0 lg:block" : undefined}>
           <div
             className={
               bgImage
