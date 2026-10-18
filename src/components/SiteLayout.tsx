@@ -45,8 +45,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div className="text-sm text-navy-foreground/75 sm:text-right">
             <p>© {new Date().getFullYear()} Envad Ltd</p>
             <p className="mt-2 text-xs leading-relaxed text-navy-foreground/80">
-              Mauritius photograph: “Mauritius Lagoon next to Le Morne 3” by otterboris, CC BY 3.0, via Wikimedia
-              Commons.
+              Photograph: Le Morne Brabant seen across the lagoon at Le Morne, Mauritius — Danen Appasamy, Envad Ltd.
             </p>
           </div>
         </div>
