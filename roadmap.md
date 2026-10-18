@@ -1,7 +1,7 @@
 # Roadmap
 
 ## Done
-- About header: Le Morne lagoon photograph (sea-level angle, blue ocean), more visible; phone-sized crop so the peak clears the text card
+- About header: Danen's own Le Morne lagoon photograph (replaces the stock picture), wide desktop crop + phone-sized portrait crop so the peak clears the text card
 - Services: every card opens its own detail page with the full write-up
 
 ## Trying out — needs the user's verdict
