@@ -12,3 +12,4 @@
 - Real client quotes for the homepage testimonials (current ones are placeholders I wrote)
 - Whether to swap in the higher-resolution uploaded logo
 - Whether to bring the Services page in line with the homepage service map (add Events and Data Consolidation and Returns; decide what to do with R&D)
+- Where the two new photos should go: the lagoon panorama (Le Morne path viewpoint) and the waterfall pool — suggested homepage hero and About story band; awaiting his pick
