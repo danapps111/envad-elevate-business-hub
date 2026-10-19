@@ -4,7 +4,7 @@
 - About header: Danen's own Le Morne lagoon photograph (replaces the stock picture), wide desktop crop + phone-sized portrait crop so the peak clears the text card
 - Services: every card opens its own detail page with the full write-up
 - Homepage hero: Danen's lagoon panorama from the Le Morne path (replaces the generated countryside scene), with a stronger top-down wash on phones so the words stay readable
-- Homepage testimonials: real quotes from Stephen Barnes (Director, Waste and Industry Compliance Ltd) and Lara Ayris (Director, WPS) replace the placeholder quotes
+- Homepage testimonials: real quotes from Stephen Barnes (Director, Waste and Industry Compliance Ltd), Lara Ayris (Director, WPS) and Shelley (Founder, SF People Solutions) replace the placeholder quotes — the long branding quote sits full-width below the other two
 
 ## Trying out — needs the user's verdict
 - Dark blue bands: footer, homepage "Have a project in mind?", About closing band, Contact details panel, and the closing panel on each service page. Keep, dial back, or drop?
