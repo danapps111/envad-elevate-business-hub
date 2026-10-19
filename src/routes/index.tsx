@@ -75,6 +75,13 @@ const TESTIMONIALS = [
     role: "Director",
     context: "Waste and Industry Compliance Ltd",
   },
+  {
+    quote:
+      "It's always a pleasure working with Dan! We've worked together on various mapping, GIS and environmental consultancy projects, and his knowledge and expertise have been invaluable. He's incredibly helpful, reliable and always quick to respond, no matter what we need. Nothing ever seems too much trouble, and he always delivers excellent work. We really appreciate his support and wouldn't hesitate to recommend him!",
+    name: "Lara Ayris",
+    role: "Director",
+    context: "WPS",
+  },
 ];
 
 export const Route = createFileRoute("/")({
