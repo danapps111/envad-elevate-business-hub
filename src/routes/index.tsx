@@ -214,7 +214,7 @@ function Index() {
             </div>
             <div className="flex items-center justify-center">
               <div className="flex h-72 w-72 flex-col items-center justify-center rounded-full border bg-card px-8 text-center shadow-xl">
-                <img src={logoAsset.url} alt="Envad Ltd logo" className="h-20 w-auto" width={320} height={180} />
+                <img src={logoAsset.url} alt="Envad Ltd logo" className="h-20 w-auto" width={1773} height={887} />
                 <span className="mt-4 h-px w-16 bg-border" />
                 <span className="mt-4 text-[11px] font-medium uppercase tracking-widest text-primary">One hub, ten services</span>
               </div>
@@ -246,7 +246,7 @@ function Index() {
         {/* Stacked version (small and medium screens) */}
         <div className="mt-10 lg:hidden">
           <div className="mx-auto flex w-fit items-center justify-center rounded-full border bg-card px-8 py-4 shadow-sm">
-            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-12 w-auto" width={320} height={180} />
+            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-12 w-auto" width={1773} height={887} />
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {[...LEFT, ...RIGHT].map((item) => (
