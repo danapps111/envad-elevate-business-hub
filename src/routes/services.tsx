@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHeader, SiteLayout } from "@/components/SiteLayout";
 import { SERVICES } from "@/lib/site";
+import waterfallAsset from "@/assets/waterfall.jpg.asset.json";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -50,13 +51,30 @@ function Services() {
             </Link>
           ))}
         </div>
-        <div className="mt-12 text-center">
-          <Link
-            to="/contact"
-            className="rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90"
-          >
-            Request a quote
-          </Link>
+        <div className="mt-16 grid gap-8 rounded-2xl border bg-card p-6 shadow-sm md:grid-cols-[0.85fr_1.15fr] md:items-center md:gap-12 md:p-8">
+          <figure className="relative min-h-[360px] overflow-hidden rounded-xl border shadow-sm sm:min-h-[420px]">
+            <img
+              src={waterfallAsset.url}
+              alt="Waterfall cascading into a clear pool in the Mauritian highlands"
+              width={800}
+              height={1000}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </figure>
+          <div>
+            <p className="text-sm font-medium uppercase tracking-widest text-primary">Not sure which service fits?</p>
+            <h2 className="mt-2 text-2xl font-bold sm:text-3xl">Tell us what you're working on.</h2>
+            <p className="mt-4 max-w-xl text-muted-foreground">
+              Send over the brief — a planning application, a permit, a modelling question — and we'll point you to the right service.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-6 inline-block rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90"
+            >
+              Request a quote
+            </Link>
+          </div>
         </div>
       </section>
     </SiteLayout>
