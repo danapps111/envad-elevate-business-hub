@@ -16,7 +16,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-30 border-b border-navy/10 bg-white/90 text-navy backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-5 sm:py-7">
           <Link to="/" className="flex shrink-0 items-center">
-            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-16 w-auto sm:h-24" width={320} height={180} />
+            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-16 w-auto sm:h-24" width={1773} height={887} />
           </Link>
           <nav className="flex w-full items-center justify-between gap-1 text-sm sm:w-auto sm:justify-end sm:gap-6 sm:text-base">
             {nav.map((n) => (
@@ -33,7 +33,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 sm:grid-cols-3">
           <div>
             <span className="inline-flex rounded-xl bg-card px-4 py-3 shadow-sm">
-              <img src={logoAsset.url} alt="Envad Ltd logo" className="h-10 w-auto" width={240} height={120} loading="lazy" />
+              <img src={logoAsset.url} alt="Envad Ltd logo" className="h-10 w-auto" width={1773} height={887} loading="lazy" />
             </span>
             <p className="mt-4 text-sm text-navy-foreground/90">Environmental consultancy based in Telford, Shropshire — serving the UK and internationally.</p>
           </div>

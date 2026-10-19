@@ -66,23 +66,92 @@ function CoverCard({ item }: { item: Cover }) {
   );
 }
 
+type Testimonial = {
+  quote: string[];
+  name: string;
+  role: string;
+  context: string;
+  featured?: boolean;
+};
+
 // Real client quotes — send more and they'll be added here.
-const TESTIMONIALS = [
+const TESTIMONIALS: Testimonial[] = [
   {
-    quote:
+    quote: [
       "Envad Ltd has provided mapping, drawing, emissions modelling and ISO 9001: 2015 technical consultancy support in a highly professional and cost effective manner. This support has been invaluable in servicing customer requirements, particularly in environmental permitting, environmental compliance and quality compliance auditing.",
+    ],
     name: "Stephen Barnes",
     role: "Director",
     context: "Waste and Industry Compliance Ltd",
   },
   {
-    quote:
+    quote: [
       "It's always a pleasure working with Dan! We've worked together on various mapping, GIS and environmental consultancy projects, and his knowledge and expertise have been invaluable. He's incredibly helpful, reliable and always quick to respond, no matter what we need. Nothing ever seems too much trouble, and he always delivers excellent work. We really appreciate his support and wouldn't hesitate to recommend him!",
+    ],
     name: "Lara Ayris",
     role: "Director",
     context: "WPS",
   },
+  {
+    featured: true,
+    quote: [
+      "I came to Dan with two challenges: a private equity-backed business in the animal health sector that needed an innovative brand to stand out in its market, and an internal people brand with a learning workbook to bring its culture to life. He delivered on both with real originality, and the work was so strong that I asked him to create the brand for my own consultancy, SF People Solutions.",
+      "That brief was demanding. I wanted a people brand for the AI age, one that captured our methodology and culture in a way that felt human, intelligent and inspiring. Dan understood it immediately. He listened carefully, asked the right questions, and translated complex ideas into a visual identity that feels distinctive and completely ours.",
+      "What sets Dan apart is that he is, first and foremost, a creative. He uses the latest AI media and marketing tools with real skill, but they never replace his judgement or imagination. They let him explore more ideas, move faster and refine further, with his creative instinct always at the heart of the work. The result is a brand that is both innovative and authentic.",
+      "I was one of Dan's first brand clients, and I would recommend him without hesitation to any organisation that wants a brand with genuine creative thinking behind it.",
+    ],
+    name: "Shelley Fullerton",
+    role: "Founder",
+    context: "SF People Solutions (SFPS Ltd)",
+  },
 ];
+
+const CARDS = TESTIMONIALS.filter((t) => !t.featured);
+const FEATURED = TESTIMONIALS.filter((t) => t.featured);
+
+function Stars() {
+  return (
+    <div className="flex gap-1 text-sun" role="img" aria-label="Rated 5 out of 5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span key={i}>★</span>
+      ))}
+    </div>
+  );
+}
+
+function TestimonialCard({ t }: { t: Testimonial }) {
+  const last = t.quote.length - 1;
+  return (
+    <figure
+      className={`flex h-full flex-col rounded-xl border bg-card p-6 shadow-sm sm:p-8 ${
+        t.featured ? "mt-6" : ""
+      }`}
+    >
+      <Stars />
+      <blockquote
+        className={`mt-4 flex-1 leading-relaxed text-navy/80 ${
+          t.featured
+            ? "grid gap-5 text-[1.05rem] lg:grid-cols-2 lg:gap-x-12"
+            : "space-y-4"
+        }`}
+      >
+        {t.quote.map((p, i) => (
+          <p key={p}>
+            {i === 0 ? "“" : ""}
+            {p}
+            {i === last ? "”" : ""}
+          </p>
+        ))}
+      </blockquote>
+      <figcaption className="mt-6 border-t border-navy/10 pt-4">
+        <span className="block font-display font-semibold text-navy">{t.name}</span>
+        <span className="mt-1 block text-sm text-muted-foreground">
+          {t.role}, {t.context}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -145,7 +214,7 @@ function Index() {
             </div>
             <div className="flex items-center justify-center">
               <div className="flex h-72 w-72 flex-col items-center justify-center rounded-full border bg-card px-8 text-center shadow-xl">
-                <img src={logoAsset.url} alt="Envad Ltd logo" className="h-20 w-auto" width={320} height={180} />
+                <img src={logoAsset.url} alt="Envad Ltd logo" className="h-20 w-auto" width={1773} height={887} />
                 <span className="mt-4 h-px w-16 bg-border" />
                 <span className="mt-4 text-[11px] font-medium uppercase tracking-widest text-primary">One hub, ten services</span>
               </div>
@@ -177,7 +246,7 @@ function Index() {
         {/* Stacked version (small and medium screens) */}
         <div className="mt-10 lg:hidden">
           <div className="mx-auto flex w-fit items-center justify-center rounded-full border bg-card px-8 py-4 shadow-sm">
-            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-12 w-auto" width={320} height={180} />
+            <img src={logoAsset.url} alt="Envad Ltd logo" className="h-12 w-auto" width={1773} height={887} />
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {[...LEFT, ...RIGHT].map((item) => (
@@ -213,37 +282,24 @@ function Index() {
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-widest text-primary">Testimonials</p>
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What clients say</h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">Short words from the people we work with.</p>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">Words from the people we work with.</p>
         </div>
         <div
           className={
-            TESTIMONIALS.length === 1
+            CARDS.length === 1
               ? "mt-12 flex justify-center"
-              : TESTIMONIALS.length === 2
+              : CARDS.length === 2
                 ? "mt-12 grid gap-6 md:grid-cols-2"
                 : "mt-12 grid gap-6 md:grid-cols-3"
           }
         >
-          {TESTIMONIALS.map((t) => (
-            <figure
-              key={t.name}
-              className={`flex h-full flex-col rounded-xl border bg-card p-6 shadow-sm ${TESTIMONIALS.length === 1 ? "w-full max-w-2xl" : ""}`}
-            >
-              <div className="flex gap-1 text-sun" role="img" aria-label="Rated 5 out of 5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i}>★</span>
-                ))}
-              </div>
-              <blockquote className="mt-4 flex-1 leading-relaxed text-navy/80">“{t.quote}”</blockquote>
-              <figcaption className="mt-6 border-t border-navy/10 pt-4">
-                <span className="block font-display font-semibold text-navy">{t.name}</span>
-                <span className="mt-1 block text-sm text-muted-foreground">
-                  {t.role}, {t.context}
-                </span>
-              </figcaption>
-            </figure>
+          {CARDS.map((t) => (
+            <TestimonialCard key={t.name} t={t} />
           ))}
         </div>
+        {FEATURED.map((t) => (
+          <TestimonialCard key={t.name} t={t} />
+        ))}
       </section>
 
       <section className="deep-glow text-navy-foreground">
