@@ -66,22 +66,14 @@ function CoverCard({ item }: { item: Cover }) {
   );
 }
 
-// Placeholder quotes — replace with real client testimonials before launch.
+// Real client quotes — send more and they'll be added here.
 const TESTIMONIALS = [
   {
-    quote: "The mapping and modelling we were given made a complicated application far easier to defend at committee.",
-    role: "Development Planner",
-    context: "Residential scheme, West Midlands",
-  },
-  {
-    quote: "Clear reports, quick answers and a genuine understanding of what the regulator actually wants to see.",
-    role: "Site Manager",
-    context: "Renewable energy project",
-  },
-  {
-    quote: "Envad picked up the project quickly and delivered exactly what we needed, on time and on budget.",
-    role: "Company Director",
-    context: "Environmental consultancy client",
+    quote:
+      "Envad Ltd has provided mapping, drawing, emissions modelling and ISO 9001: 2015 technical consultancy support in a highly professional and cost effective manner. This support has been invaluable in servicing customer requirements, particularly in environmental permitting, environmental compliance and quality compliance auditing.",
+    name: "Stephen Barnes",
+    role: "Director",
+    context: "Waste and Industry Compliance Ltd",
   },
 ];
 
