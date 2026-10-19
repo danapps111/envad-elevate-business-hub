@@ -208,9 +208,12 @@ function Index() {
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What clients say</h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">Short words from the people we work with.</p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className={TESTIMONIALS.length === 1 ? "mt-12 flex justify-center" : "mt-12 grid gap-6 md:grid-cols-3"}>
           {TESTIMONIALS.map((t) => (
-            <figure key={t.role} className="flex h-full flex-col rounded-xl border bg-card p-6 shadow-sm">
+            <figure
+              key={t.name}
+              className={`flex h-full flex-col rounded-xl border bg-card p-6 shadow-sm ${TESTIMONIALS.length === 1 ? "w-full max-w-2xl" : ""}`}
+            >
               <div className="flex gap-1 text-sun" role="img" aria-label="Rated 5 out of 5">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <span key={i}>★</span>
@@ -218,8 +221,10 @@ function Index() {
               </div>
               <blockquote className="mt-4 flex-1 leading-relaxed text-navy/80">“{t.quote}”</blockquote>
               <figcaption className="mt-6 border-t border-navy/10 pt-4">
-                <span className="block font-display font-semibold text-navy">{t.role}</span>
-                <span className="mt-1 block text-sm text-muted-foreground">{t.context}</span>
+                <span className="block font-display font-semibold text-navy">{t.name}</span>
+                <span className="mt-1 block text-sm text-muted-foreground">
+                  {t.role}, {t.context}
+                </span>
               </figcaption>
             </figure>
           ))}
