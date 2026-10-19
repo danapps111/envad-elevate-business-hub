@@ -13,6 +13,10 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
+  "engines": {
+    "node": ">=22"
+  },
+
   "overrides": {
     "rolldown": "1.2.1"
   },
