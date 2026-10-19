@@ -4,7 +4,7 @@
 - About header: Danen's own Le Morne lagoon photograph (replaces the stock picture), wide desktop crop + phone-sized portrait crop so the peak clears the text card
 - Services: every card opens its own detail page with the full write-up
 - Homepage hero: Danen's lagoon panorama from the Le Morne path (replaces the generated countryside scene), with a stronger top-down wash on phones so the words stay readable
-- Homepage testimonials: real quotes from Stephen Barnes (Director, Waste and Industry Compliance Ltd), Lara Ayris (Director, WPS) and Shelley (Founder, SF People Solutions) replace the placeholder quotes — the long branding quote sits full-width below the other two
+- Homepage testimonials: real quotes from Stephen Barnes (Director, Waste and Industry Compliance Ltd), Lara Ayris (Director, WPS) and Shelley Fullerton (Founder, SF People Solutions) replace the placeholder quotes — the long branding quote sits full-width below the other two
 - Logo: replace the header, footer and browser tab icon logo with Danen's new background-free logo (ENVAD Nature River Logo)
 
 ## Trying out — needs the user's verdict

@@ -100,7 +100,7 @@ const TESTIMONIALS: Testimonial[] = [
       "What sets Dan apart is that he is, first and foremost, a creative. He uses the latest AI media and marketing tools with real skill, but they never replace his judgement or imagination. They let him explore more ideas, move faster and refine further, with his creative instinct always at the heart of the work. The result is a brand that is both innovative and authentic.",
       "I was one of Dan's first brand clients, and I would recommend him without hesitation to any organisation that wants a brand with genuine creative thinking behind it.",
     ],
-    name: "Shelley",
+    name: "Shelley Fullerton",
     role: "Founder",
     context: "SF People Solutions (SFPS Ltd)",
   },
