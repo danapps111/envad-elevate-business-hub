@@ -66,22 +66,21 @@ function CoverCard({ item }: { item: Cover }) {
   );
 }
 
-// Placeholder quotes — replace with real client testimonials before launch.
+// Real client quotes — send more and they'll be added here.
 const TESTIMONIALS = [
   {
-    quote: "The mapping and modelling we were given made a complicated application far easier to defend at committee.",
-    role: "Development Planner",
-    context: "Residential scheme, West Midlands",
+    quote:
+      "Envad Ltd has provided mapping, drawing, emissions modelling and ISO 9001: 2015 technical consultancy support in a highly professional and cost effective manner. This support has been invaluable in servicing customer requirements, particularly in environmental permitting, environmental compliance and quality compliance auditing.",
+    name: "Stephen Barnes",
+    role: "Director",
+    context: "Waste and Industry Compliance Ltd",
   },
   {
-    quote: "Clear reports, quick answers and a genuine understanding of what the regulator actually wants to see.",
-    role: "Site Manager",
-    context: "Renewable energy project",
-  },
-  {
-    quote: "Envad picked up the project quickly and delivered exactly what we needed, on time and on budget.",
-    role: "Company Director",
-    context: "Environmental consultancy client",
+    quote:
+      "It's always a pleasure working with Dan! We've worked together on various mapping, GIS and environmental consultancy projects, and his knowledge and expertise have been invaluable. He's incredibly helpful, reliable and always quick to respond, no matter what we need. Nothing ever seems too much trouble, and he always delivers excellent work. We really appreciate his support and wouldn't hesitate to recommend him!",
+    name: "Lara Ayris",
+    role: "Director",
+    context: "WPS",
   },
 ];
 
@@ -216,9 +215,20 @@ function Index() {
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What clients say</h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">Short words from the people we work with.</p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div
+          className={
+            TESTIMONIALS.length === 1
+              ? "mt-12 flex justify-center"
+              : TESTIMONIALS.length === 2
+                ? "mt-12 grid gap-6 md:grid-cols-2"
+                : "mt-12 grid gap-6 md:grid-cols-3"
+          }
+        >
           {TESTIMONIALS.map((t) => (
-            <figure key={t.role} className="flex h-full flex-col rounded-xl border bg-card p-6 shadow-sm">
+            <figure
+              key={t.name}
+              className={`flex h-full flex-col rounded-xl border bg-card p-6 shadow-sm ${TESTIMONIALS.length === 1 ? "w-full max-w-2xl" : ""}`}
+            >
               <div className="flex gap-1 text-sun" role="img" aria-label="Rated 5 out of 5">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <span key={i}>★</span>
@@ -226,8 +236,10 @@ function Index() {
               </div>
               <blockquote className="mt-4 flex-1 leading-relaxed text-navy/80">“{t.quote}”</blockquote>
               <figcaption className="mt-6 border-t border-navy/10 pt-4">
-                <span className="block font-display font-semibold text-navy">{t.role}</span>
-                <span className="mt-1 block text-sm text-muted-foreground">{t.context}</span>
+                <span className="block font-display font-semibold text-navy">{t.name}</span>
+                <span className="mt-1 block text-sm text-muted-foreground">
+                  {t.role}, {t.context}
+                </span>
               </figcaption>
             </figure>
           ))}
