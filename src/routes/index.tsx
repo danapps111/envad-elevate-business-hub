@@ -215,7 +215,15 @@ function Index() {
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What clients say</h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">Short words from the people we work with.</p>
         </div>
-        <div className={TESTIMONIALS.length === 1 ? "mt-12 flex justify-center" : "mt-12 grid gap-6 md:grid-cols-3"}>
+        <div
+          className={
+            TESTIMONIALS.length === 1
+              ? "mt-12 flex justify-center"
+              : TESTIMONIALS.length === 2
+                ? "mt-12 grid gap-6 md:grid-cols-2"
+                : "mt-12 grid gap-6 md:grid-cols-3"
+          }
+        >
           {TESTIMONIALS.map((t) => (
             <figure
               key={t.name}
