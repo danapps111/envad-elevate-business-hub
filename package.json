@@ -4,7 +4,8 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "vite build && node -e \"require('fs').copyFileSync('server.js', '.output/server.js')\"",
+    "dev": "vite dev",
+    "build": "NITRO_PRESET=node-server vite build",
     "start": "node .output/server/index.mjs"
   },
   "engines": {
