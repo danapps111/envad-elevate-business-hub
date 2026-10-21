@@ -4,6 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "dev": "vite dev",
     "build": "NITRO_PRESET=node-server vite build",
     "start": "node .output/server/index.mjs"
   },
